@@ -12,9 +12,13 @@ function App() {
   const [prevPageUrl,setPrevPageUrl]=useState()
   const [loading,setLoading]=useState(true)
 
+
+  /*La llamada a useEffect acepta una función como argumento. 
+  Esta función se ejecuta por defecto cuando el componente se renderiza por primera vez, 
+  y después cada vez que el componente se actualice.*/
+
   useEffect(()=>{
       setLoading(true)
-      let cancel
       axios.get(currentPageUrl).then(res =>{
           setLoading(false)  
           setPrevPageUrl(res.data.previous)
